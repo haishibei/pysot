@@ -25,7 +25,7 @@ for sub_set in sub_sets:
             f = dict()
             xmltree = ET.parse(xml)
             size = xmltree.findall('size')[0]
-            frame_sz = [int(it.text) for it in size]
+            frame_sz = [int(float(it.text)) for it in size]
             objects = xmltree.findall('object')
             objs = []
             for object_iter in objects:

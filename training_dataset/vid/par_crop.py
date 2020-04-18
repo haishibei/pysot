@@ -80,7 +80,8 @@ def crop_video(sub_set, video, crop_path, instanc_size):
         objs = []
         filename = xmltree.findall('filename')[0].text
 
-        im = cv2.imread(xml.replace('xml', 'JPEG').replace('Annotations', 'Data'))
+        # TODO 这里根据格式将‘JPEG’改为‘jpg’
+        im = cv2.imread(xml.replace('xml', 'jpg').replace('Annotations', 'Data'))
         avg_chans = np.mean(im, axis=(0, 1))
         for object_iter in objects:
             trackid = int(object_iter.find('trackid').text)
